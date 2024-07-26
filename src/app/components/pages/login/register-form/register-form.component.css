@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+}
+.background {
+    background-color: #fbfcfc;
+    border-radius: 32px 0 0 32px;
+    /* height: 100vh; */
+    /* width: 900px; */
+    margin-left: 765px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+}
+h1 {
+    font-size: 36.48px;
+    font-weight: 600;
+}
+h2 {
+    font-size: 25px;
+    font-weight: 500;
+}
+h1, h2 {
+    color: #202020;
+}
+input {
+    /* margin: 0px auto; */
+    width: 393px;
+    height: 48px;
+    border: 1px solid #dcdbdd;
+    border-radius: 12px;
+    display: block;
+    padding-left: 16px;
+    margin-bottom: 20px;
+    transition: 0.2s all;
+}
+input::placeholder {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 14px;
+    color: #84818A;
+}
+input::content {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    color: #202020;
+}
+input:focus {
+    outline: none;
+}
+form input:focus + label {
+    visibility: visible;
+    /* color: black; */
+}
+input:focus::placeholder {
+    visibility: hidden;
+}
+label {
+    position: fixed;
+    margin-left: 20px;
+    margin-top: -78px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #84818a;
+    z-index: 99;
+    visibility: hidden;
+}
+form {
+    margin-top: 40px;
+}
+.submit-button {
+    width: 164px;
+    height: 48px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #33a3aa;
+    border-radius: 12px;
+    border: none;
+    color: white;
+}
+span {
+    position: fixed;
+    margin-top: -58px;
+    margin-left: 354px;
+}
+.container {
+    width: 393px;
+}
+.forgot {
+    font-size: 14px;
+    font-weight: 400;
+    color: #47464A;
+}
+.form-options {
+    width: 393px;
+}
+.privacy-policy {
+    color: #84818A;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+.privacy-policy a {
+    color: #33a3aa;
+}
+.rectangle {
+    display: none;
+    width: 108px;
+    height: 89px;
+    background-color: #d9d9d9;
+    margin: 0px auto;
+    margin-top: 96px;
+}
+@media (max-width: 1200px) {
+    .background {
+        margin-left: 0;
+        align-items: start;
+        font-family: 'Neue Montreal';
+        width: 100%;
+    }
+    .rectangle {
+        display: block;
+    }
+    label {
+        position: absolute;
+        visibility: visible;
+        margin-left: 0px;
+        margin-top: -141px;
+        color: #a7afb7;
+    }
+    h1 {
+        display: none;
+    }
+    h2 {
+        width: 196px;
+        font-size: 30px;
+        font-weight: 500;
+        margin: 0px auto;
+        margin-top: 38px;
+        font-family: 'Inter';
+        color: #333333;
+    }
+    form {
+        margin-top: 119px;
+    }
+    input {
+        margin-bottom: 0;
+        width: 340px;
+        height: 42px;
+    }
+    input:first-child {
+        margin-bottom: 66px;
+    }
+    #pass-label {
+        margin-top: -69px;
+        /* margin-bottom: 69px; */
+    }
+    .container {
+        width: 340px;
+    }
+    span {
+        position: absolute;
+        margin-top: -35px;
+        margin-left: 301px;
+    }
+    input::placeholder {
+        font-family: 'Neue Montreal';
+        color: #777777;
+    }
+    .submit-button {
+        margin-left: -21px;
+        margin-top: 247px;
+        width: 353px;
+    }
+    .form-options {
+        width: 353px;
+    }
+    .forgot {
+        display: none;
+    }
+    .privacy-policy {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    input:focus:first-child {
+        clip-path: polygon(0 0, 12px 0, 12px 2px, 59px 2px, 59px 0, 100% 0, 100% 100%, 0 100%);
+    }
+    #password:focus {
+        clip-path: polygon(0 0, 12px 0, 12px 2px, 98px 2px, 98px 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .background {
+        height: 100vh;
+    }
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('../../../../../assets/fonts/NeueMontreal-Regular.otf') format('truetype');
+}

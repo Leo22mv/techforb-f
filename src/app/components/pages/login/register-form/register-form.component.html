@@ -1,0 +1,24 @@
+<div class="background">
+    <div class="container">
+        <canvas class="rectangle"></canvas>
+        <h1>Portal de monitoreo</h1>
+        <h2>Registrarse</h2>
+        <form>
+            <input id="email" type="email" placeholder="Email" required>
+            <label for="email">Email</label>
+            <input id="password" type="password" placeholder="Contraseña" required>
+            <label for="password" id="pass-label">Contraseña</label>
+            <span (click)="togglePasswordButton()" id="toggle-password" aria-label="Mostrar u ocultar contraseña">
+                <img src="../../../../../assets/img/eye-slash.png" id="toggle-password-img">
+            </span>
+            <div class="form-options d-flex align-items-center justify-content-between">
+                <p class="forgot">¿Olvidaste tu contraseña?</p>
+                <button type="submit" class="submit-button">Iniciar sesión</button>
+            </div>
+        </form>
+        <p class="privacy-policy">Protegido por reCAPTCHA y sujeto a la <a>Política de Privacidad</a> y <a>Condiciones.</a></p>
+        <!-- <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div> -->
+    </div>
+</div>

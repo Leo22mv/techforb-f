@@ -1,0 +1,66 @@
+.background {
+    position: fixed;
+    background: linear-gradient(rgba(51, 163, 170, 0.85), rgba(16, 112, 118, 0.85)), url(../../../../../assets/img/a0d1013d36e21f2381ef822d0e1d387b.png);
+    height: 900px;
+    width: 1600px;
+    left: -744px;
+    background-size: cover;
+    z-index: -1;
+}
+h1, p, h2, h3, img {
+    position: fixed;
+    margin: 0;
+    color: white;
+    font-family: 'Poppins';
+}
+h1, p, img {
+    margin-left: 128px;
+}
+h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-top: 319px;
+}
+.text {
+    width: 360px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 387px;
+}
+.title-1 {
+    margin-top: 479px;
+}
+.img-1 {
+    margin-top: 483px;
+}
+h2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.title-1, .description-1, .title-2, .description-2 {
+    margin-left: 164px;
+}
+.description-1 {
+    margin-top: 503px;
+    font-size: 12px;
+    font-weight: 400;
+}
+.title-2 {
+    margin-top: 540px;
+}
+.img-2 {
+    margin-top: 542px;
+}
+.title-1, .description-1 {
+    margin-left: 164px;
+}
+.description-1 {
+    margin-top: 503px;
+}
+.description-1, .description-2 {
+    font-size: 12px;
+    font-weight: 400;
+}
+.description-2 {
+    margin-top: 564px;
+}
