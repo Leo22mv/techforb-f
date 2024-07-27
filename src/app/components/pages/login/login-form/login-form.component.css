@@ -80,10 +80,10 @@ form {
     border: none;
     color: white;
 }
-span {
+#toggle-password {
     position: fixed;
     margin-top: -58px;
-    margin-left: 354px;
+    margin-left: 359px;
 }
 .container {
     width: 393px;
@@ -112,6 +112,19 @@ span {
     background-color: #d9d9d9;
     margin: 0px auto;
     margin-top: 96px;
+}
+.spinner-border {
+    margin-top: 15px;
+}
+.alert {
+    margin-top: 15px;
+    text-align: center;
+}
+.alert a {
+    text-decoration: underline;
+}
+.submit-button:disabled {
+    opacity: 50%;
 }
 @media (max-width: 1200px) {
     .background {
@@ -160,10 +173,10 @@ span {
     .container {
         width: 340px;
     }
-    span {
+    #toggle-password {
         position: absolute;
         margin-top: -35px;
-        margin-left: 301px;
+        margin-left: 306px;
     }
     input::placeholder {
         font-family: 'Neue Montreal';
@@ -182,6 +195,14 @@ span {
     }
     .privacy-policy {
         display: none;
+    }
+    .spinner-border {
+        position: absolute;
+        margin-top: -98px;
+    }
+    .alert {
+        position: absolute;
+        margin-top: -140px;
     }
 }
 

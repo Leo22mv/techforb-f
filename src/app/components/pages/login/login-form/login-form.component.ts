@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,7 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  email: string = "";
+  password: string = "";
+
+  loading: boolean = false;
+  userError: boolean = false;
+  serverError: boolean = false;
+
+  submitButton: HTMLButtonElement | null = document.getElementById('submit-button') as HTMLButtonElement || null
+
+  constructor(private authService: AuthService, private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     if (window.innerWidth <= 1200) {
@@ -31,12 +43,39 @@ export class LoginFormComponent implements OnInit {
     let position: string;
 
     if (window.innerWidth <= 1200) {
-      position = passwordInput.getAttribute('type') === 'password' ? "301px" : "306px";
+      position = passwordInput.getAttribute('type') === 'password' ? "306px" : "301px";
     } else {
-      position = passwordInput.getAttribute('type') === 'password' ? "354px" : "359px";
+      position = passwordInput.getAttribute('type') === 'password' ? "359px" : "354px";
     }
     const togglePasswordSpan = document.getElementById('toggle-password') as HTMLElement || null;
     togglePasswordSpan.style.marginLeft = position;
+  }
+
+  onSubmit() {
+    this.loading = true;
+    this.userError = false;
+    this.serverError = false;
+    if (this.submitButton) {
+      this.submitButton.disabled = true;
+    }
+
+    this.authService.login({
+      "email": this.email,
+      "password": this.password
+    }).subscribe(res => {
+      this.loading = false
+      console.log(res)
+
+      this.router.navigate(['/dashboard']);
+    }, err => {
+      this.loading = false
+      console.error(err);
+      if (err.status == 401) {
+        this.userError = true;
+      } else {
+        this.serverError = true;
+      }
+    });
   }
 
 }

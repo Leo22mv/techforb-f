@@ -3,22 +3,34 @@
         <canvas class="rectangle"></canvas>
         <h1>Portal de monitoreo</h1>
         <h2>Registrarse</h2>
-        <form>
-            <input id="email" type="email" placeholder="Email" required>
+        <form (submit)="onSubmit()">
+            <input id="email" name="email" type="email" placeholder="Email" [(ngModel)]="email" required>
             <label for="email">Email</label>
-            <input id="password" type="password" placeholder="Contraseña" required>
+            <input id="password" name="password" type="password" placeholder="Contraseña" [(ngModel)]="password" required>
             <label for="password" id="pass-label">Contraseña</label>
+            <input id="name" name="name" type="text" placeholder="Nombre" [(ngModel)]="name" required>
+            <label for="name" id="pass-label">Nombre</label>
+            <input id="surname" name="surname" type="text" placeholder="Apellido" [(ngModel)]="surname">
+            <label for="surname" id="pass-label">Apellido</label>
             <span (click)="togglePasswordButton()" id="toggle-password" aria-label="Mostrar u ocultar contraseña">
-                <img src="../../../../../assets/img/eye-slash.png" id="toggle-password-img">
+                <img src="../../../../../assets/img/Shape2.png" id="toggle-password-img">
             </span>
             <div class="form-options d-flex align-items-center justify-content-between">
                 <p class="forgot">¿Olvidaste tu contraseña?</p>
-                <button type="submit" class="submit-button">Iniciar sesión</button>
+                <button type="submit" class="submit-button" id="submit-button">Registrarse</button>
             </div>
         </form>
         <p class="privacy-policy">Protegido por reCAPTCHA y sujeto a la <a>Política de Privacidad</a> y <a>Condiciones.</a></p>
-        <!-- <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div> -->
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" *ngIf="loading">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="userError">
+                Email existente.
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="serverError">
+                Error en el servidor. Vuelve a intentarlo en unos minutos.
+            </div>
+        </div>
     </div>
 </div>

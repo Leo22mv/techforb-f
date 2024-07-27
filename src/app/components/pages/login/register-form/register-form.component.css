@@ -80,10 +80,10 @@ form {
     border: none;
     color: white;
 }
-span {
+#toggle-password {
     position: fixed;
-    margin-top: -58px;
-    margin-left: 354px;
+    margin-top: -194px;
+    margin-left: 359px;
 }
 .container {
     width: 393px;
@@ -92,6 +92,7 @@ span {
     font-size: 14px;
     font-weight: 400;
     color: #47464A;
+    visibility: hidden;
 }
 .form-options {
     width: 393px;
@@ -113,6 +114,13 @@ span {
     margin: 0px auto;
     margin-top: 96px;
 }
+.spinner-border, .alert {
+    margin-top: 15px;
+}
+.submit-button:disabled {
+    opacity: 50%;
+}
+
 @media (max-width: 1200px) {
     .background {
         margin-left: 0;
@@ -146,7 +154,7 @@ span {
         margin-top: 119px;
     }
     input {
-        margin-bottom: 0;
+        margin-bottom: 50px;
         width: 340px;
         height: 42px;
     }
@@ -154,16 +162,16 @@ span {
         margin-bottom: 66px;
     }
     #pass-label {
-        margin-top: -69px;
+        margin-top: -119px;
         /* margin-bottom: 69px; */
     }
     .container {
         width: 340px;
     }
-    span {
+    #toggle-password {
         position: absolute;
-        margin-top: -35px;
-        margin-left: 301px;
+        margin-top: -270px;
+        margin-left: 306px;
     }
     input::placeholder {
         font-family: 'Neue Montreal';
@@ -171,7 +179,7 @@ span {
     }
     .submit-button {
         margin-left: -21px;
-        margin-top: 247px;
+        margin-top: 13px;
         width: 353px;
     }
     .form-options {
@@ -191,6 +199,12 @@ span {
     }
     #password:focus {
         clip-path: polygon(0 0, 12px 0, 12px 2px, 98px 2px, 98px 0, 100% 0, 100% 100%, 0 100%);
+    }
+    #name:focus {
+        clip-path: polygon(0 0, 12px 0, 12px 2px, 79px 2px, 79px 0, 100% 0, 100% 100%, 0 100%);
+    }
+    #surname:focus {
+        clip-path: polygon(0 0, 12px 0, 12px 2px, 79px 2px, 79px 0, 100% 0, 100% 100%, 0 100%);
     }
     .background {
         height: 100vh;
