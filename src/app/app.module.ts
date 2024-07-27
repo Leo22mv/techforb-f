@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { HeroComponent } from './components/pages/login/hero/hero.component';
 import { LoginFormComponent } from './components/pages/login/login-form/login-form.component';
 import { RegisterFormComponent } from './components/pages/login/register-form/register-form.component';
+import { SidenavComponent } from './components/pages/dashboard/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegisterFormComponent } from './components/pages/login/register-form/re
     DashboardComponent,
     HeroComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

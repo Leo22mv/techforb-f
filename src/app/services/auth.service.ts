@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../models/User';
+import { RegisterForm } from '../models/RegisterForm';
 import { LoginForm } from '../models/LoginForm';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,16 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  register(req: User) {
+  register(req: RegisterForm) {
     return this.http.post(this.uri + "", req);
   }
 
-  edit(id: number, userDetails: User) {
+  edit(id: number, userDetails: RegisterForm) {
     return this.http.put(this.uri + "", userDetails);
   }
 
   login(loginForm: LoginForm) {
-    return this.http.post(this.uri + "/login", loginForm)
+    return this.http.post<User>(this.uri + "/login", loginForm)
   }
 
   logout() {

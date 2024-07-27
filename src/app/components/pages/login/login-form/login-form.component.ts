@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
+import { User } from '../../../../models/User';
 
 @Component({
   selector: 'app-login-form',
@@ -64,7 +65,10 @@ export class LoginFormComponent implements OnInit {
       "password": this.password
     }).subscribe(res => {
       this.loading = false
-      console.log(res)
+      this.cookieService.set('id', res.id.toString(), { expires: 1, path: '/'})
+      this.cookieService.set('email', res.email, { expires: 1, path: '/'});
+      this.cookieService.set('name', res.name, { expires: 1, path: '/'});
+      this.cookieService.set('surname', res.surname, { expires: 1, path: '/'});
 
       this.router.navigate(['/dashboard']);
     }, err => {

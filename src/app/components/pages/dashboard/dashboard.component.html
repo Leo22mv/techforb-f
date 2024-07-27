@@ -1,1 +1,339 @@
-<p>dashboard works!</p>
+<div class="background">
+    <app-sidenav id="sidenav"></app-sidenav>
+    <div class="content">
+        <div class="header">
+            <h1 class="title">Monitoreo global</h1>
+            <span class="toggle-sidenav" data-bs-toggle="offcanvas" href="#sidenavOffcanvas" role="button" aria-controls="sidenavOffcanvas">
+                <img src="../../../../assets/img/ci_hamburger-md.png">
+            </span>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="sidenavOffcanvas" aria-labelledby="offcanvasExampleLabel">
+                <span class="logo"><img src="../../../../../assets/img/Logo.png"></span>
+                <span class="dashboard"><img src="../../../../../assets/img/Dashboard.png"></span>
+                <span><img src="../../../../../assets/img/Monitoreo por planta.png"></span>
+                <span><img src="../../../../../assets/img/Histórico de sensores.png"></span>
+                <span><img src="../../../../../assets/img/Histórico de plantas.png"></span>
+                <span><img src="../../../../../assets/img/Cerrar sesión.png"></span>
+            </div>
+            <div class="header-menu">
+                <img src="../../../../assets/img/Idioma.png">
+                <img src="../../../../assets/img/Ajustes.png">
+                <img src="../../../../assets/img/notification.png">
+                <p class="name">
+                    Juan Rojas
+                </p>
+            </div>
+        </div>
+        <div class="global-monitoring">
+            <h1 class="responsive-title">Resumen de planta</h1>
+            <div class="CARD">
+                <div class="global-data">
+                    <p>Lecturas OK</p>
+                    <h2>1.234</h2>
+                </div>
+                <img src="../../../../assets/img/Ok.png">
+            </div>
+            <div class="CARD">
+                <div class="global-data">
+                    <p>Alertas medias</p>
+                    <h2>1.234</h2>
+                </div>
+                <img src="../../../../assets/img/Group 8719.png">
+            </div>
+            <div class="CARD">
+                <div class="global-data">
+                    <p>Alertas rojas</p>
+                    <h2>1.234</h2>
+                </div>
+                <img src="../../../../assets/img/Group 8705.png">
+            </div>
+            <div class="CARD">
+                <div class="global-data">
+                    <p>Sensores deshabilitados</p>
+                    <h2>1.234</h2>
+                </div>
+                <img src="../../../../assets/img/Group 8712.png">
+            </div>
+        </div>
+        <div class="plants CARD">
+            <div class="plants-header">
+                <h1 class="plants-title">Plantas</h1>
+                <button class="create-plant" data-bs-toggle="modal" data-bs-target="#createPlantModal">+ Crear nueva planta</button>
+                <div class="modal fade" id="createPlantModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Crear nueva planta</h1>
+                            <form class="create-plant-form">
+                                <label for="plant-name">Nombre planta</label>
+                                <input id="plant-name" name="plant-name" placeholder="Ingrese nombre" type="text">
+                                <label for="plant-country">País</label>
+                                <select id="plant-country" name="plant-country">
+                                    <option value="" disabled selected>Selecciona un país</option>
+                                    <option *ngFor="let country of countriesList">{{ country.name.common }}</option>
+                                </select>
+                            </form>
+                            <button type="button" class="cancel-create-plant-button" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="create-plant-button">Crear</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <canvas class="line"></canvas>
+            <div class="plants-columns-titles plants-row">
+                <h1>País</h1>
+                <h1 class="plants-row-second plants-row-item">Nombre de la planta</h1>
+                <h1 class="plants-row-third plants-row-item">Lecturas</h1>
+                <h1 class="plants-row-fourth plants-row-item">Alertas medias</h1>
+                <h1 class="plants-row-fifth plants-row-item">Alertas rojas</h1>
+                <h1 class="plants-row-sixth plants-row-item">Acciones</h1>
+            </div>
+            <div class="plants-row">
+                <p class="plants-row-item">
+                    <img class="flag" src="{{ countriesList[0].flags.png }}">
+                    {{ countriesList[0].name.common }}
+                </p>
+                <p class="plants-row-second plants-row-item">Nombre de la planta</p>
+                <p class="plants-row-third plants-row-item">300</p>
+                <p class="plants-row-fourth plants-row-item">10</p>
+                <p class="plants-row-fifth plants-row-item">2</p>
+                <span class="plants-row-sixth plants-row-item actions" data-bs-toggle="modal" data-bs-target="#actions-modal">
+                    <img src="../../../../assets/img/Vector.png">
+                </span>
+                <div class="modal fade" id="actions-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <button type="button" class="actions-button" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#edit-plant-modal">Editar</button>
+                          <button type="button" class="actions-button" data-bs-dismiss="modal">Eliminar</button>
+                          <button type="button" class="close-actions-button" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="edit-plant-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar planta</h1>
+                            <form class="edit-plant-form">
+                                <div class="edit-plant-form-field edit-plant-first-column">
+                                    <label for="plant-name">Nombre planta</label>
+                                    <input id="plant-name" name="plant-name" placeholder="Nombre planta" type="text" disabled>
+                                </div>
+                                <div class="edit-plant-form-field">
+                                    <label for="plant-country">País</label>
+                                    <input id="plant-country" name="plant-country" type="text" placeholder="Pais" disabled>
+                                </div>
+                                <div class="edit-plant-form-field edit-plant-first-column">
+                                    <label for="plant-readings">Cantidad de lecturas</label>
+                                    <input id="plant-readings" name="plant-readings" type="number" placeholder="Ingrese">
+                                </div>
+                                <div class="edit-plant-form-field">
+                                    <label for="plant-readings">Sensores deshabilitados</label>
+                                    <input id="plant-readings" name="plant-readings" type="number" placeholder="Ingrese">
+                                </div>
+                                <div class="edit-plant-form-field edit-plant-first-column">
+                                    <label for="plant-readings">Alertas medias</label>
+                                    <input id="plant-readings" name="plant-readings" type="number" placeholder="Ingrese">
+                                </div>
+                                <div class="edit-plant-form-field">
+                                    <label for="plant-readings">Alertas rojas</label>
+                                    <input id="plant-readings" name="plant-readings" type="number" placeholder="Ingrese">
+                                </div>
+                            </form>
+                            <div class="edit-plant-modal-buttons">
+                                <button type="button" class="cancel-create-plant-button edit-plant-button" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="create-plant-button edit-plant-button">Crear</button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sensors">
+            <div class="sensors-row">
+                <div class="CARD">
+                    <div class="sensors-content">
+                        <h1>Temperatura</h1>
+                        <div class="sensors-readings">
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Ok.png">
+                                <p>100</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8719.png">
+                                <p>20</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8705.png">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensors-icon">
+                        <img src="../../../../assets/img/Icon(0).png">
+                    </div>
+                </div>
+                <div class="CARD">
+                    <div class="sensors-content">
+                        <h1>Presión</h1>
+                        <div class="sensors-readings">
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Ok.png">
+                                <p>100</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8719.png">
+                                <p>20</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8705.png">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensors-icon">
+                        <img src="../../../../assets/img/Icon(1).png">
+                    </div>
+                </div>
+                <div class="CARD">
+                    <div class="sensors-content">
+                        <h1>Viento</h1>
+                        <div class="sensors-readings">
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Ok.png">
+                                <p>100</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8719.png">
+                                <p>20</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8705.png">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensors-icon">
+                        <img src="../../../../assets/img/Icon(2).png">
+                    </div>
+                </div>
+                <div class="CARD">
+                    <div class="sensors-content">
+                        <h1>Niveles</h1>
+                        <div class="sensors-readings">
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Ok.png">
+                                <p>100</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8719.png">
+                                <p>20</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8705.png">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensors-icon">
+                        <img src="../../../../assets/img/Icon(3).png">
+                    </div>
+                </div>
+            </div>
+            <div class="sensors-row">
+                <div class="CARD">
+                    <div class="sensors-content">
+                        <h1>Energía</h1>
+                        <div class="sensors-readings">
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Ok.png">
+                                <p>100</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8719.png">
+                                <p>20</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8705.png">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensors-icon">
+                        <img src="../../../../assets/img/Icon(4).png">
+                    </div>
+                </div>
+                <div class="CARD">
+                    <div class="sensors-content">
+                        <h1>Tensión</h1>
+                        <div class="sensors-readings">
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Ok.png">
+                                <p>100</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8719.png">
+                                <p>20</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8705.png">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensors-icon">
+                        <img src="../../../../assets/img/Icon(5).png">
+                    </div>
+                </div>
+                <div class="CARD">
+                    <div class="sensors-content">
+                        <h1>Monóxido de carbono</h1>
+                        <div class="sensors-readings">
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Ok.png">
+                                <p>100</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8719.png">
+                                <p>20</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8705.png">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensors-icon">
+                        <img src="../../../../assets/img/Icon(6).png">
+                    </div>
+                </div>
+                <div class="CARD">
+                    <div class="sensors-content">
+                        <h1>Otros gases</h1>
+                        <div class="sensors-readings">
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Ok.png">
+                                <p>100</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8719.png">
+                                <p>20</p>
+                            </div>
+                            <div class="sensors-reading">
+                                <img src="../../../../assets/img/Group 8705.png">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensors-icon">
+                        <img src="../../../../assets/img/Icon(7).png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
