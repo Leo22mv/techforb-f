@@ -1,0 +1,31 @@
+@media (max-width: 1200px) {
+    #sidenav {
+        display: none;
+    }
+    .title {
+        display: none;
+    }
+    .responsive-title {
+        display: block;
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .toggle-sidenav {
+        display: block;
+    }
+}
+@media (min-width: 1200px) {
+    .global-monitoring {
+        width: 1262px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .background {
+        width: 1440px;
+        height: 900px;
+    }
+    .line {
+        width: 1222px;
+    }
+}
