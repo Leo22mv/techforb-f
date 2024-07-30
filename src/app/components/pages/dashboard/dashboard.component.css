@@ -13,7 +13,6 @@
     margin-bottom: 20px;
 }
 .global-monitoring .CARD {
-    width: 290px;
     height: 110px;
     display: flex;
     justify-content: space-between;
@@ -25,11 +24,9 @@ h1 {
     font-size: 30px;
     font-weight: 500;
 }
-.header {
-    margin-bottom: 20px;
+.header-content {
     display: flex;
     justify-content: space-between;
-    height: 45px;
 }
 .global-monitoring .CARD img {
     width: 60px;
@@ -142,7 +139,6 @@ h1 {
     justify-content: center;
 }
 .sensors .CARD {
-    width: 290px;
     height: 90px;
     padding-left: 19px;
     display: flex;

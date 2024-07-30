@@ -1,8 +1,9 @@
 export interface Plant {
+    id: number,
     country: string;
     name: string;
     readings: number;
-    medium: number;
-    red: number;
-    disabled: number;
+    mediums: number;
+    reds: number;
+    disableds: number;
 }

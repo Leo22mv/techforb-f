@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from '../../../../models/User';
+import { JwtDecoderService } from 'src/app/services/jwt-decoder.service';
 
 @Component({
   selector: 'app-login-form',
@@ -20,7 +21,7 @@ export class LoginFormComponent implements OnInit {
 
   submitButton: HTMLButtonElement | null = document.getElementById('submit-button') as HTMLButtonElement || null
 
-  constructor(private authService: AuthService, private router: Router, private cookieService: CookieService) { }
+  constructor(private authService: AuthService, private router: Router, private cookieService: CookieService, private jwtService: JwtDecoderService) { }
 
   ngOnInit(): void {
     if (window.innerWidth <= 1200) {
@@ -76,7 +77,16 @@ export class LoginFormComponent implements OnInit {
       console.error(err);
       if (err.status == 401) {
         this.userError = true;
-      } else {
+      } else if (err.status==200) {
+        this.loading = false
+        let user: any = this.jwtService.decodeToken(err.error.text);
+        this.cookieService.set('email', user.email, { expires: 1, path: '/'});
+        this.cookieService.set('name', user.name, { expires: 1, path: '/'});
+        this.cookieService.set('surname', user.surname, { expires: 1, path: '/'});
+        this.cookieService.set('token', err.error.text, { expires: 1, path: '/'});
+        this.router.navigate(['/dashboard']);
+      }
+       else {
         this.serverError = true;
       }
     });

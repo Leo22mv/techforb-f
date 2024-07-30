@@ -1,8 +1,5 @@
 @media (max-width: 1200px) {
-    #sidenav {
-        display: none;
-    }
-    .title {
+    .mobile-d-none {
         display: none;
     }
     .responsive-title {
@@ -13,6 +10,90 @@
     }
     .toggle-sidenav {
         display: block;
+        margin-top: 10px;
+    }
+    .plants-row-item {
+        position: relative;
+        font-size: 12px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+    .plants-row {
+        margin-left: 19px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .plants-columns-titles {
+        display: none;
+    }
+    .plants {
+        height: 350px;
+        padding-top: 28px;
+    }
+    .sensors-row {
+        flex-direction: column;
+    }
+    .CARD {
+        width: 100%;
+    }
+    .content {
+        margin: 0px auto;
+        width: 100%;
+        margin: 0 26px;
+    }
+    .global-monitoring {
+        margin-top: 14px;
+    }
+    .header {
+        margin-top: 64px;
+    }
+    .background {
+        background-color: #f9f9fa;
+    }
+    .header-line {
+        width: 100%;
+        height: 1px;
+        background-color: #f3f3f3;
+    }
+    .rectangle {
+        width: 81px;
+        height: 66.75px;
+        background-color: #d9d9d9;
+        margin-top: -38px;
+    }
+    .plants-title {
+        font-family: 'Inter';
+        font-size: 18px;
+        font-weight: 700;
+        margin-left: 18px;
+    }
+    .plants-row-third, .plants-row-fourth, .plants-row-fifth {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 14px;
+        color: #d70000;
+    }
+    .plants-row-country {
+        font-family: 'Inter';
+        font-size: 14px;
+        font-weight: 500;
+        color: black;
+    }
+    .plants-row-second {
+        font-family: 'Inter';
+        font-size: 12px;
+        font-weight: 400;
+        color: #848484;
+    }
+    .edit-plant-button:first-child {
+        margin: 0;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    .edit-plant-form-field {
+        width: 100%;
     }
 }
 @media (min-width: 1200px) {
@@ -27,5 +108,31 @@
     }
     .line {
         width: 1222px;
+    }
+    .global-monitoring .CARD, .sensors .CARD {
+        width: 290px;
+    }
+    .rectangle {
+        display: none;
+    }
+    .header-line {
+        display: none;
+    }
+    .plants-row1 {
+        /* display: flex;
+        align-items: center; */
+        margin-top: 50px;
+    }
+    /* .plants-row-item {
+        position: relative;
+    } */
+    .plants-row2 {
+        margin-top: 100px;
+    }
+    .plants-row3 {
+        margin-top: 150px;
+    }
+    .plants-row4 {
+        margin-top: 200px;
     }
 }
