@@ -9,7 +9,8 @@ import { User } from '../models/User';
 })
 export class AuthService {
 
-  uri: string = "http://localhost:8080/user";
+  // uri: string = "http://localhost:8080/user";
+  uri: string = "https://techforb-java.onrender.com/user";
 
   constructor(private http: HttpClient) { }
 
