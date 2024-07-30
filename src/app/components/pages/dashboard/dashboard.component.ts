@@ -30,7 +30,8 @@ export class DashboardComponent implements OnInit {
   newPlantName: string = "";
   newPlantCountry: string = "";
 
-  uri: string = "http://localhost:3000/api/plant";
+  // uri: string = "http://localhost:3000/api/plant";
+  uri: string = "https://techforb-node.onrender.com";
 
   flags: Array<string | undefined> = [];
 
